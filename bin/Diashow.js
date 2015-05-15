@@ -1,6 +1,6 @@
 
 /**
- * Diashow Popup
+ * Diashow / Slideshow
  * Shows an image popup and the user can navigate through a list of images
  *
  * @module package/quiqqer/diashow/bin/Diashow

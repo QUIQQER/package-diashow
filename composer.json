@@ -2,7 +2,7 @@
     "name" : "quiqqer/diashow",
     "type" : "quiqqer-library",
     "description" : "Image Diashow JS Component",
-    "version" : "dev-master",
+    "version" : "dev-dev",
     "license" : "MIT",
 
     "authors" : [{
