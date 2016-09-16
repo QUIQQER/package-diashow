@@ -8,18 +8,13 @@
  * @require qui/QUI
  * @require qui/controls/windows/Popup
  * @require qui/utils/Math
- * @require URL_BIN_DIR +'QUI/lib/Assets.js
  * @require css!package/quiqqer/diashow/bin/Diashow.css
- *
- * @todo remove Asset and use require image!
  */
 define('package/quiqqer/diashow/bin/Diashow', [
 
     'qui/QUI',
     'qui/controls/windows/Popup',
     'qui/utils/Math',
-
-    URL_BIN_DIR + 'QUI/lib/Assets.js',
 
     'css!package/quiqqer/diashow/bin/Diashow.css'
 
@@ -36,6 +31,7 @@ define('package/quiqqer/diashow/bin/Diashow', [
             '$onClose',
             '$keyup',
 
+            'showImage',
             'showNextImage',
             'showPrevImage'
         ],
@@ -192,116 +188,114 @@ define('package/quiqqer/diashow/bin/Diashow', [
                 childLength = this.getAttribute('images').length;
 
 
-            Asset.image(src, {
-                onLoad: function (Image) {
-                    var pc;
+            require(['image!' + src], function (Image) {
+                var pc;
+                
+                var height  = Image.height,
+                    width   = Image.width,
+                    docSize = document.getSize();
 
-                    var height  = Image.get('height'),
-                        width   = Image.get('width'),
-                        docSize = document.getSize();
+                var docWidth  = docSize.x - 100,
+                    docHeight = docSize.y - 100;
 
-                    var docWidth  = docSize.x - 100,
-                        docHeight = docSize.y - 100;
+                // set width ?
+                if (width > docWidth) {
+                    pc = QUIMath.percent(docWidth, width);
 
-                    // set width ?
-                    if (width > docWidth) {
-                        pc = QUIMath.percent(docWidth, width);
+                    width  = docWidth;
+                    height = ( height * (pc / 100) ).round();
+                }
 
-                        width  = docWidth;
-                        height = ( height * (pc / 100) ).round();
-                    }
+                // set height ?
+                if (height > docHeight) {
+                    pc = QUIMath.percent(docHeight, height);
 
-                    // set height ?
-                    if (height > docHeight) {
-                        pc = QUIMath.percent(docHeight, height);
+                    height = docHeight;
+                    width  = ( width * (pc / 100) ).round();
+                }
 
-                        height = docHeight;
-                        width  = ( width * (pc / 100) ).round();
-                    }
+                // resize win
+                self.setAttribute('maxWidth', width);
+                self.setAttribute('maxHeight', height);
 
-                    // resize win
-                    self.setAttribute('maxWidth', width);
-                    self.setAttribute('maxHeight', height);
+                // button resize
+                self.$ButtonText.set(
+                    'html',
 
-                    // button resize
-                    self.$ButtonText.set(
-                        'html',
+                    '<div class="qui-diashow-image-preview-header">' +
+                    title +
+                    '</div>' +
+                    '<div class="qui-diashow-image-preview-text">' +
+                    short +
+                    '</div>'
+                );
 
-                        '<div class="qui-diashow-image-preview-header">' +
-                        title +
-                        '</div>' +
-                        '<div class="qui-diashow-image-preview-text">' +
-                        short +
-                        '</div>'
+                self.$ButtonText.set('title', short);
+
+                if (self.getAttribute('shortenShort')) {
+                    var Text = self.$ButtonText.getElement(
+                        '.qui-diashow-image-preview-text'
                     );
 
-                    self.$ButtonText.set('title', short);
-
-                    if (self.getAttribute('shortenShort')) {
-                        var Text = self.$ButtonText.getElement(
-                            '.qui-diashow-image-preview-text'
-                        );
-
-                        Text.setStyles({
-                            'float'     : 'left',
-                            width       : '100%',
-                            whiteSpace  : 'nowrap',
-                            overflow    : 'hidden',
-                            textOverflow: 'ellipsis'
-                        });
-                    }
-
-                    // get dimensions
-                    var Temp = self.$ButtonText.clone().inject(
-                        self.$ButtonText.getParent()
-                    );
-
-                    Temp.setStyles({
-                        height    : 0,
-                        visibility: 'hidden'
-                    });
-
-                    var dimensions = Temp.getScrollSize(),
-                        newHeight  = dimensions.y + 10;
-
-                    Temp.destroy();
-
-                    if (newHeight < 50) {
-                        newHeight = 50;
-                    }
-
-                    moofx(self.$ButtonCnr).animate({
-                        height: newHeight
-                    });
-
-
-                    self.$Stats.set('html', childIndex + ' von ' + childLength); // #locale
-
-                    self.resize(true, function () {
-                        self.getContent().set({
-                            html  : '',
-                            styles: {
-                                height: '100%'
-                            }
-                        });
-
-
-                        self.$Image = new Element('img', {
-                            'class': 'qui-diashow-image-preview',
-                            src    : src,
-                            styles : {
-                                opacity: 0
-                            }
-                        }).inject(self.getContent());
-
-                        moofx(self.$Image).animate({
-                            opacity: 1
-                        });
-
-                        self.__$current = false;
-                        self.Loader.hide();
+                    Text.setStyles({
+                        'float'     : 'left',
+                        width       : '100%',
+                        whiteSpace  : 'nowrap',
+                        overflow    : 'hidden',
+                        textOverflow: 'ellipsis'
                     });
                 }
+
+                // get dimensions
+                var Temp = self.$ButtonText.clone().inject(
+                    self.$ButtonText.getParent()
+                );
+
+                Temp.setStyles({
+                    height    : 0,
+                    visibility: 'hidden'
+                });
+
+                var dimensions = Temp.getScrollSize(),
+                    newHeight  = dimensions.y + 10;
+
+                Temp.destroy();
+
+                if (newHeight < 50) {
+                    newHeight = 50;
+                }
+
+                moofx(self.$ButtonCnr).animate({
+                    height: newHeight
+                });
+
+
+                self.$Stats.set('html', childIndex + ' von ' + childLength); // #locale
+
+                self.resize(true, function () {
+                    self.getContent().set({
+                        html  : '',
+                        styles: {
+                            height: '100%'
+                        }
+                    });
+
+
+                    self.$Image = new Element('img', {
+                        'class': 'qui-diashow-image-preview',
+                        src    : src,
+                        styles : {
+                            opacity: 0
+                        }
+                    }).inject(self.getContent());
+
+                    moofx(self.$Image).animate({
+                        opacity: 1
+                    });
+
+                    self.__$current = false;
+                    self.Loader.hide();
+                });
             });
         },
 
