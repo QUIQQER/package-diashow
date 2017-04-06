@@ -1,0 +1,11 @@
+<quiqqer>
+    <package>
+        <title>
+            <locale group="quiqqer/diashow" var="package.title"/>
+        </title>
+
+        <description>
+            <locale group="quiqqer/diashow" var="package.description"/>
+        </description>
+    </package>
+</quiqqer>
