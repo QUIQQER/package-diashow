@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locales>
+    <groups name="quiqqer/diashow" datatype="php,js">
+        <locale name="package.title">
+            <de><![CDATA[QUIQQER - Diashow (Bibliothek)]]></de>
+            <en><![CDATA[QUIQQER - Diashow (Library)]]></en>
+        </locale>
+        <locale name="package.description" html="true">
+            <de><![CDATA[Diashow / Slideshow Component]]></de>
+            <en><![CDATA[Diashow / Slideshow Component]]></en>
+        </locale>
+    </groups>
+</locales>
