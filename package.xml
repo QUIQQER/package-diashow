@@ -10,6 +10,10 @@
 
         <image src="URL_OPT_DIR/quiqqer/diashow/bin/images/Logo.jpg"/>
 
+        <preview>
+            <image src="URL_OPT_DIR/quiqqer/diashow/bin/images/preview/1.png"/>
+        </preview>
+
         <support>
             <email><![CDATA[support@pcsg.de]]></email>
             <forum><![CDATA[https://community.quiqqer.com]]></forum>
