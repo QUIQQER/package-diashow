@@ -2,7 +2,7 @@
     "name" : "quiqqer/diashow",
     "type" : "quiqqer-plugin",
     "description" : "Image Diashow JS Component",
-    "version" : "dev-master",
+    "version" : "1.0.0",
     "license" : "GPL-3.0+",
     "authors" : [{
         "name": "Henning Leutz",
