@@ -55,11 +55,23 @@ The package provides a diashow-control.
 JavaScript:
 
 ```javascript
-require(['package/quiqqer/diashow/bin/Diashow'], function(Diashow) {
-    new Diashow({
-        images      : [],
+require(['package/quiqqer/diashow/bin/Diashow'], function(DiashowControl) {
+    var Diashow = new DiashowControl({
+        images      : [
+            {
+                src: 'https://image.path/img.png', 
+                title: 'Image Title', 
+                short: 'Image Description'
+            }, {
+                src: 'https://image.path/img2.png', 
+                title: 'Image Title 2', 
+                short: 'Image Description 2'
+            }
+        ],
         zIndex      : 1000,
         shortenShort: true
-    }).inject(Container);
+    });
+    Diashow.inject(Container);
+    Diashow.open();
 });
 ```
