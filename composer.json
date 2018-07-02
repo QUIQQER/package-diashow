@@ -1,6 +1,6 @@
 {
     "name" : "quiqqer/diashow",
-    "type" : "quiqqer-library",
+    "type" : "quiqqer-plugin",
     "description" : "Image Diashow JS Component",
     "version" : "dev-dev",
     "license" : "MIT",
