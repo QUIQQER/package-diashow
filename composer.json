@@ -1,10 +1,9 @@
 {
     "name" : "quiqqer/diashow",
-    "type" : "quiqqer-library",
+    "type" : "quiqqer-plugin",
     "description" : "Image Diashow JS Component",
     "version" : "dev-master",
-    "license" : "MIT",
-
+    "license" : "GPL-3.0+",
     "authors" : [{
         "name": "Henning Leutz",
         "email": "leutz@pcsg.de",

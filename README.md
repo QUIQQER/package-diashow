@@ -1,10 +1,12 @@
+![Diashow](bin/images/Readme.jpg)
+
 
 Diashow
 ========
 
-Diashow / Slideshow Componente
+Diashow/Slideshow Component
 
-Packagename:
+Package name:
 
     quiqqer/diashow
 
@@ -18,13 +20,13 @@ Features
 Installation
 ------------
 
-The Packagename is: quiqqer/diashow
+The package name is: quiqqer/diashow
 
 
 Contribute
 ----------
 
-- Project place: https://dev.quiqqer.com/quiqqer/package-diashow
+- Project: https://dev.quiqqer.com/quiqqer/package-diashow
 - Issue Tracker: https://dev.quiqqer.com/quiqqer/package-diashow/issues
 - Source Code: https://dev.quiqqer.com/quiqqer/package-diashow/tree/master
 
@@ -32,11 +34,44 @@ Contribute
 Support
 -------
 
-If you are having issues, please let us know.
+If you found any flaws, have any wishes or suggestions you can send an email
+to [support@pcsg.de](mailto:support@pcsg.de) to inform us about your concerns. 
+We will try to respond to your request and forward it to the responsible developer.
+
 
 
 License
 -------
 
-The project is licensed under the MIT license.
+GPL-3.0+
 
+
+
+Usage
+-----
+
+The package provides a diashow-control.
+
+JavaScript:
+
+```javascript
+require(['package/quiqqer/diashow/bin/Diashow'], function(DiashowControl) {
+    var Diashow = new DiashowControl({
+        images      : [
+            {
+                src: 'https://image.path/img.png', 
+                title: 'Image Title', 
+                short: 'Image Description'
+            }, {
+                src: 'https://image.path/img2.png', 
+                title: 'Image Title 2', 
+                short: 'Image Description 2'
+            }
+        ],
+        zIndex      : 1000,
+        shortenShort: true
+    });
+    Diashow.inject(Container);
+    Diashow.open();
+});
+```
