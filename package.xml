@@ -7,18 +7,18 @@
         <description>
             <locale group="quiqqer/diashow" var="package.description"/>
         </description>
+
+        <support>
+            <email><![CDATA[support@pcsg.de]]></email>
+            <forum><![CDATA[https://community.quiqqer.com]]></forum>
+            <source><![CDATA[https://dev.quiqqer.com/quiqqer/package-diashow]]></source>
+            <issues><![CDATA[https://dev.quiqqer.com/quiqqer/package-diashow/issues]]></issues>
+            <wiki><![CDATA[https://dev.quiqqer.com/quiqqer/package-diashow/wikis/home]]></wiki>
+        </support>
+
+        <copyright>
+            <name><![CDATA[PCSG - Computer & Internet Service OHG]]></name>
+            <license><![CDATA[]]></license>
+        </copyright>
     </package>
-
-    <support>
-        <email><![CDATA[support@pcsg.de]]></email>
-        <forum><![CDATA[https://community.quiqqer.com]]></forum>
-        <source><![CDATA[https://dev.quiqqer.com/quiqqer/package-diashow]]></source>
-        <issues><![CDATA[https://dev.quiqqer.com/quiqqer/package-diashow/issues]]></issues>
-        <wiki><![CDATA[https://dev.quiqqer.com/quiqqer/package-diashow/wikis/home]]></wiki>
-    </support>
-
-    <copyright>
-        <name><![CDATA[PCSG - Computer & Internet Service OHG]]></name>
-        <license><![CDATA[]]></license>
-    </copyright>
 </quiqqer>
