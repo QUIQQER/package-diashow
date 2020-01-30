@@ -1,27 +1,25 @@
 {
-    "name" : "quiqqer/diashow",
-    "type" : "quiqqer-plugin",
-    "description" : "Image Diashow JS Component",
-    "version" : "dev-master",
-    "license" : "GPL-3.0+",
-    "authors" : [{
-        "name": "Henning Leutz",
-        "email": "leutz@pcsg.de",
-        "homepage": "http://www.pcsg.de",
-        "role": "Developer"
-    }],
-
-    "support" : {
-        "email" : "support@pcsg.de"
+    "name": "quiqqer\/diashow",
+    "type": "quiqqer-plugin",
+    "description": "Image Diashow JS Component",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "Henning Leutz",
+            "email": "leutz@pcsg.de",
+            "homepage": "http:\/\/www.pcsg.de",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@pcsg.de"
     },
-
     "require": {
-        "quiqqer/quiqqer" : "*@dev"
+        "quiqqer\/quiqqer": "*@dev"
     },
-
     "autoload": {
-        "psr-0" : {
-            "QUI" : "lib/"
+        "psr-0": {
+            "QUI": "lib\/"
         }
     }
 }
